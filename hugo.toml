@@ -1,0 +1,51 @@
+baseURL = 'https://tappat.top/'
+languageCode = 'en-us'
+defaultContentLanguage = 'en'
+title = 'Hugo'
+theme = 'mini'
+hasCJKLanguage = true
+paginate = 3
+
+[permalinks]
+  posts = "/posts/:title/"
+
+# 分类配置
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+# Markdown配置
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    guessSyntax = true
+    style = "monokai"
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+
+# 站点参数
+[params]
+  author = "nodejh"
+  bio = "Software Engineer"
+  description = "My Blog"
+  enableRSS = true
+  enableComments = true
+  enableGoogleAnalytics = true
+  showToc = true
+  showPowerBy = true
+  hiddenPostSummaryInHomePage = false
+  math = false
+  copyright = "© Copyright 2021 ❤ nodejh"
+
+  [params.social]
+    github = "https://github.com/nodejh"
+    stackoverflow = "https://stackoverflow.com"
+    twitter = "https://twitter.com"
+
+  # 额外导航链接
+  # links:
+  #   - name: 作品集
+  #     path: /portfolio
