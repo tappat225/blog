@@ -1,10 +1,10 @@
-baseURL = 'https://tappat.top/'
-languageCode = 'en-us'
-defaultContentLanguage = 'en'
-title = 'Hugo'
+baseURL = 'https://blog.tappat.top/'
+languageCode = 'zh-CN'
+defaultContentLanguage = 'zh'
+title = 'TappaT的博客'
 theme = 'mini'
 hasCJKLanguage = true
-paginate = 3
+pagination.pagerSize = 3
 
 [permalinks]
   posts = "/posts/:title/"
@@ -28,22 +28,20 @@ paginate = 3
 
 # 站点参数
 [params]
-  author = "nodejh"
-  bio = "Software Engineer"
-  description = "My Blog"
+  author = "tappat"
+  bio = "NEW LUDEN"
+  description = "TappaT 的个人博客，记录技术学习与项目实践"
   enableRSS = true
-  enableComments = true
-  enableGoogleAnalytics = true
+  enableComments = false
+  enableGoogleAnalytics = false
   showToc = true
   showPowerBy = true
   hiddenPostSummaryInHomePage = false
   math = false
-  copyright = "© Copyright 2021 ❤ nodejh"
+  copyright = "© Copyright 2026 ❤ tappat"
 
   [params.social]
-    github = "https://github.com/nodejh"
-    stackoverflow = "https://stackoverflow.com"
-    twitter = "https://twitter.com"
+    github = "https://github.com/tappat225"
 
   # 额外导航链接
   # links:

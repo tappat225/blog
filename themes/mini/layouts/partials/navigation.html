@@ -13,4 +13,6 @@
 	{{ if .Site.Params.enableRSS }}
 	  <a class="button" href="{{ "index.xml" | relURL }}">{{ with .Site.Params.subscribe }}{{ . }}{{ else }}{{ i18n "subscribe" }}{{ end }}</a>
 	{{ end }}
+
+	<a href="#" class="theme-toggle" onclick="toggleTheme(); return false;" title="Toggle dark mode"><span id="theme-toggle-icon">🌙</span></a>
 </nav>

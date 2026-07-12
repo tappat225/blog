@@ -24,9 +24,8 @@
   
 
 
-    {{ $pages := .Site.RegularPages }}
-    {{ $paginator := .Paginate ($pages) }}
-    {{ range $paginator.Pages }}
+    {{ $pages := first 6 .Site.RegularPages }}
+    {{ range $pages }}
         {{ $title := .Title }}
         {{ $date := dateFormat "Jan 2, 2006" .Date }}
         <section class="item">

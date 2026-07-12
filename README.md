@@ -19,4 +19,4 @@ brew install hugo
 
 - new post: `hugo new posts/文章名.md`
 - preview: `hugo server -D --bind 0.0.0.0`
-- build to `public/` : `hugo --minify --cleanDestinationDir`
+- build : `hugo build`

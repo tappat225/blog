@@ -7,10 +7,10 @@
     {{ with .Site.Params.copyright }}
         {{ . | markdownify }}
     {{ else }}
-       © Copyright 
-       {{ now.Format "2006"}} 
+       © Copyright
+       {{ now.Format "2006"}}
        <span class="split">
-        {{ partial "svgs/heart.svg" (dict "fill" "#bbbbbb" "width" 15 "height" 15 ) }}
+        {{ partial "svgs/heart.svg" (dict "fill" "var(--social-icon)" "width" 15 "height" 15 ) }}
        </span>
        {{ .Site.Params.Author }}
     {{ end }}
@@ -22,6 +22,22 @@
       </div>
     {{ end }}
 </footer>
+
+<script>
+function toggleTheme() {
+  var html = document.documentElement;
+  var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  var icon = document.getElementById('theme-toggle-icon');
+  if (icon) icon.textContent = next === 'dark' ? '☀️' : '🌙';
+}
+document.addEventListener('DOMContentLoaded', function() {
+  var html = document.documentElement;
+  var icon = document.getElementById('theme-toggle-icon');
+  if (icon) icon.textContent = html.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
+});
+</script>
 
 {{ range .Site.Params.customJS }}
     {{ if ( or ( hasPrefix . "http://" ) ( hasPrefix . "https://" ) ) }}
