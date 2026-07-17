@@ -7,7 +7,7 @@ hasCJKLanguage = true
 pagination.pagerSize = 3
 
 [permalinks]
-  posts = "/posts/:title/"
+  posts = "/posts/:slug/"
 
 # 分类配置
 [taxonomies]
