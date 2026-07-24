@@ -1,6 +1,6 @@
 ﻿+++
 date = '2026-07-18T16:36:38+08:00'
-draft = false
+draft = true
 title = 'CapOwn项目第一次复盘'
 tags = ['AI']
 categories = ['note']
