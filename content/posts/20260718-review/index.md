@@ -2,6 +2,7 @@
 date = '2026-07-18T16:36:38+08:00'
 draft = true
 title = 'CapOwn项目第一次复盘'
+slug = 'capown-first-review'
 tags = ['AI']
 categories = ['note']
 description = ''

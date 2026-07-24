@@ -19,28 +19,41 @@ param(
 
   [string]$Categories = "",
 
-  [string]$Description = ""
+  [string]$Description = "",
+
+  [string]$Slug = ""
 )
 
 # 时间戳前缀：YYYYMMDD
 $datePrefix = Get-Date -Format "yyyyMMdd"
 
-# 从标题生成英文 slug
-$slug = $Title.ToLower()
-$slug = $slug -replace '[^a-z0-9\s一-鿿-]', ''
-$slug = $slug.Trim()
-if ($slug -match '[一-鿿]') {
-  $slug = $datePrefix
+# 从标题生成目录名
+$dirSlug = $Title.ToLower()
+$dirSlug = $dirSlug -replace '[^a-z0-9\s一-鿿-]', ''
+$dirSlug = $dirSlug.Trim()
+if ($dirSlug -match '[一-鿿]') {
+  $dirSlug = $datePrefix
 } else {
-  $slug = $datePrefix + "-" + ($slug -replace '\s+', '-')
+  $dirSlug = $datePrefix + "-" + ($dirSlug -replace '\s+', '-')
+}
+
+# 从标题生成英文 slug（用于 frontmatter）
+if (-not $Slug) {
+  $Slug = $Title.ToLower()
+  $Slug = $Slug -replace '[一-鿿]', ''
+  $Slug = $Slug -replace '[^a-z0-9\s-]', ''
+  $Slug = $Slug -replace '\s+', '-'
+  $Slug = $Slug -replace '-+', '-'
+  $Slug = $Slug.Trim('-')
+  if ($Slug.Length -lt 3) { $Slug = "" }
 }
 
 # 目标目录（如果已存在则自动加 -2、-3）
-$postDir = "content\posts\$slug"
+$postDir = "content\posts\$dirSlug"
 $counter = 1
 while (Test-Path $postDir) {
   $counter++
-  $postDir = "content\posts\$slug-$counter"
+  $postDir = "content\posts\$dirSlug-$counter"
 }
 $postFile = "$postDir\index.md"
 
@@ -54,11 +67,14 @@ if ($Tags.Count -gt 0) {
   $tagsYaml = "[" + (($Tags | ForEach-Object { "`"$_`"" }) -join ", ") + "]"
 }
 
+$slugLine = if ($Slug) { "slug = '$Slug'" } else { "" }
+
 $frontMatter = @"
 +++
 date = '$now'
 draft = true
 title = '$Title'
+$slugLine
 tags = $tagsYaml
 categories = ['$Categories']
 description = '$Description'

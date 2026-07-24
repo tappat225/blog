@@ -3,6 +3,7 @@ date = '2026-05-09T16:37:14+08:00'
 draft = false
 build = { list = "never", render = "never" }
 title = '你好，世界！我的第一篇博客'
+slug = 'hello-world'
 tags = ["博客", "Hugo"]
 categories = ["技术"]
 description = "这是我的第一篇博客文章"

@@ -2,6 +2,7 @@
 date = '2026-07-24T14:11:24+08:00'
 draft = false
 title = 'AI毁灭人类文明的五条路径'
+slug = 'ai-five-paths'
 tags = ['AI']
 categories = ['']
 description = ''
