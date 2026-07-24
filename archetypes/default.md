@@ -1,8 +1,8 @@
 ---
 date: '{{ .Date }}'
-draft: true
+draft: false
 title: '{{ replace (path.Base (path.Dir .Name)) "-" " " | title }}'
-tags: []
-categories: []
+tags: ['']
+categories: ['']
 description: ''
 ---
